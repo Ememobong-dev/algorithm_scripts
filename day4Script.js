@@ -36,7 +36,7 @@ const myFunction = (arrayOfNumbers, k) => {
   console.log(
     "................................................................."
   );
-  return operations;
+  return "The minimum number of operations needed is "  + operations;
   
 };
 
