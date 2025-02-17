@@ -18,7 +18,6 @@ const extractWord = (word) => {
       let otherKindOfLink = splittedArray[0].split(".").slice(-2);
       return otherKindOfLink.join(".");
     }
-
   } else {
     // https weren't included in the link
     let otherKindOfLink = splittedArray[0].split(".").slice(-2);
@@ -33,5 +32,5 @@ console.log(extractWord("https://www.wix.com/explore/websites/site/malco-wallsho
 console.log(extractWord("www.teamdocs.io/hello-there"));
 console.log(extractWord('teamdocs.io'));
 console.log(extractWord("https://www.teamdocs.io"))
-console.log(extractWord("https://api.www.teamdocs.io/abc")) //teamdocs.io
+console.log(extractWord("https://api.www.teamdocs.io/abc"))
 
