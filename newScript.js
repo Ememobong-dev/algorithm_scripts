@@ -1,11 +1,12 @@
 const extractWord = (word) => {
   let splittedArray = word.split("/");
-  console.log(splittedArray, "Splitted");
+//   console.log(splittedArray, "Splitted");
   let baseUrlArray;
+  let otherKindOfLink = splittedArray[0].split(".").slice(-2);
 
   if (splittedArray.length > 1) {
 
-    if (splittedArray[0].includes("https")) {
+    if (splittedArray[0].includes("http")) {
       const trial = splittedArray[2];
       const splittedTrial = trial.split(".");
       if (splittedTrial.length > 2) {
@@ -15,12 +16,10 @@ const extractWord = (word) => {
       return splittedTrial.join(".");
     } else {
       // https weren't included in the link
-      let otherKindOfLink = splittedArray[0].split(".").slice(-2);
       return otherKindOfLink.join(".");
     }
   } else {
     // https weren't included in the link
-    let otherKindOfLink = splittedArray[0].split(".").slice(-2);
     return otherKindOfLink.join(".");
   }
 };
