@@ -24,32 +24,31 @@
 //   }
 // };
 
+
 const extractWord = (word) => {
   let baseName;
   let domainName;
 
-  let splittedArray = word.split("://");
+  let splittedArray = word.split("//");
 
-  if (splittedArray[0].includes("http")) {
+  if (word.includes("://")) {
     splittedArray.splice(0, 1);
   }
 
-  let otherKindOfLink = splittedArray[0].split(".").slice(-2);
+  let otherUrlPath = splittedArray[0].split(".").slice(-2);
+  baseName = otherUrlPath[0];
 
-  baseName = otherKindOfLink[0]
-
-  if (otherKindOfLink[1].includes("/")) {
-    let xyy = otherKindOfLink[1].split("/");
+  if (otherUrlPath[1].includes("/")) {
+    let xyy = otherUrlPath[1].split("/");
     xyy.splice(1);
-    domainName = xyy.join('')
+    domainName = xyy.join("");
   } else {
-    domainName = otherKindOfLink[1];
+    domainName = otherUrlPath[1];
   }
 
-  return ` ${baseName}.${domainName}  `
-
- 
+  return ` ${baseName}.${domainName}  `;
 };
+
 
 console.log(extractWord("https://teamsdoc.io/app"));
 console.log(extractWord("https://google.com/jjjjjj")); //google.com
@@ -65,3 +64,6 @@ console.log(extractWord("www.teamdocs.io/hello-there"));
 console.log(extractWord("teamdocs.io"));
 console.log(extractWord("https://www.teamdocs.io"));
 console.log(extractWord("https://api.www.teamdocs.io/abc"));
+console.log(extractWord("https://api.www.teamdocs.io/abc"));
+console.log(extractWord("ftp://example.com"));
+
